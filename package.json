@@ -1,33 +1,40 @@
 {
-  "name": "react-jupyter",
-  "version": "0.1.0",
-  "main": "./dist/react-jupyter.js",
-  "private": false,
-  "homepage": "http://eoinmurray.io/react-jupyter",
+  "name": "@kyso/react-jupyter",
+  "version": "0.2.0",
+  "main": "dist/index.js",
+  "files": ["dist"],
   "devDependencies": {
     "babel-cli": "^6.24.0",
     "babel-preset-es2015": "^6.24.0",
     "babel-preset-react": "^6.23.0",
     "babel-preset-stage-0": "^6.22.0",
     "css-loader": "^0.27.3",
-    "gh-pages": "^0.12.0",
     "raw-loader": "^0.5.1",
-    "react-scripts": "0.9.5",
     "webpack": "^2.3.2"
   },
   "dependencies": {
+    "@nteract/display-area": "^4.1.0",
+    "@nteract/notebook-preview": "^7.1.0",
+    "@nteract/transform-dataresource": "^3.0.2",
+    "@nteract/transform-vega": "^3.1.0",
+    "@nteract/transforms": "^4.1.0",
+    "@nteract/transforms-full": "^5.1.0",
     "ansi_up": "^1.3.0",
     "highlight.js": "^9.10.0",
+    "immutable": "^3.8.2",
+    "isomorphic-fetch": "^2.2.1",
+    "lodash": "^4.17.5",
     "markdown-it": "^8.3.1",
     "markdown-it-mathjax": "^2.0.0",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "next": "^5.1.0",
+    "prop-types": "^15.6.1",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "webpack",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "deploy": "gh-pages -d build"
+    "dev": "next",
+    "build": "nwb build-react-component && cp -r ./lib/ ./dist && rm -r ./lib",
+    "build-demo": "next build",
+    "start": "next start"
   }
 }

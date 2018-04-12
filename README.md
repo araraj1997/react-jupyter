@@ -1,9 +1,13 @@
-# react-jupyter.js
+# react-jupyter
+
+This project takes heavily from [nteract](https://github.com/nteract/nteract)
 
 ## Installation
 
 ```bash
-npm install react-jupyter
+npm install @kyso/react-jupyter
+or
+yarn add @kyso/react-jupyter
 ```
 
 ## Demo
@@ -14,14 +18,12 @@ npm install react-jupyter
 
 ```jsx
 <Jupyter
-  notebook={notebookJSON}
+  content={notebookJSON}
   showCode={true} // optional
-  defaultStyle={true} // optional
-  loadMathjax={true} // optional
+  showOutput={true}
 />
 ```
 
-- `notebooks` - is the json content of an ipynb notebook file. Note: it must be json, not a string.
-- `showCode` - (_optional_), defaults to true, whether or not to show the code in the notebook. It can be handy to hide the code to make a nice presentation .
-- `defaultStyle` - (_optional_), defaults to true, if true then the library will load a default css file.
-- `loadMathjax` - (_optional_), defaults to true, will load an instance of MathJax from the MathJax CDN.
+- `content` - is the json content of an ipynb notebook file. Note: it must be json, not a string.
+- `showCode` - (_optional_), defaults to false, whether or not to show the code and the code outputs in the notebook. It can be handy to hide the code to make a nice presentation.
+- `showOput` - (_optional_), defaults to false, whether or not to show the code outputs in the notebook.
