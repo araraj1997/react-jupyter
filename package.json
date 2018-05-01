@@ -2,9 +2,13 @@
   "name": "@kyso/react-jupyter",
   "version": "0.4.0",
   "main": "dist/index.js",
-  "files": [
-    "dist"
-  ],
+  "scripts": {
+    "dev": "next",
+    "export": "next build ; next export",
+    "deploy": "cd out ; now",
+    "build": "nwb build-react-component && cp -r ./lib/ ./dist && rm -r ./lib",
+    "start": "next start"
+  },
   "devDependencies": {
     "babel-cli": "^6.24.0",
     "babel-preset-es2015": "^6.24.0",
@@ -12,6 +16,9 @@
     "babel-preset-stage-0": "^6.22.0",
     "raw-loader": "^0.5.1",
     "webpack": "^2.3.2"
+  },
+  "now": {
+    "alias": "react-jupyter.oss.kyso.io"
   },
   "dependencies": {
     "@nteract/display-area": "^4.1.0",
@@ -28,15 +35,9 @@
     "lodash": "^4.17.5",
     "markdown-it": "^8.3.1",
     "markdown-it-mathjax": "^2.0.0",
-    "next": "^5.1.0",
+    "next": "^6.0.0",
     "prop-types": "^15.6.1",
-    "react": "^16.3.1",
-    "react-dom": "^16.3.1"
-  },
-  "scripts": {
-    "dev": "next",
-    "build": "nwb build-react-component && cp -r ./lib/ ./dist && rm -r ./lib",
-    "build-demo": "next build",
-    "start": "next start"
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2"
   }
 }

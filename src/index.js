@@ -73,34 +73,18 @@ export default class extends React.Component {
     const { content, type } = this.props
     const { display } = this.state
 
-    const style = `
-      ${display === 'hidden' || display === 'output' ? `
-        .input-container {
-          display: none!important;
-        }
-      ` : ``}
-
-      ${display === 'hidden' ? `
-        .nteract-display-area-stdout {
-          display: none!important;
-        }
-
-        .nteract-display-area-stderr {
-          display: none!important;
-        }
-      ` : ``}
-    `
-
     return (
       <div>
-        Code:{'  '}
-        <select onChange={(e) => this.onChangeDisplay(e)} value={display}>
-          <option value="hidden" defaultValue={display === 'hidden'}>Hidden</option>
-          <option value="shown" defaultValue={display === 'shown'}>Shown</option>
-          <option value="output" defaultValue={display === 'output'}>
-            Hidden, but show code outputs
-          </option>
-        </select>
+        <div className="selector">
+          Code:{'  '}
+          <select onChange={(e) => this.onChangeDisplay(e)} value={display}>
+            <option value="hidden" defaultValue={display === 'hidden'}>Hidden</option>
+            <option value="shown" defaultValue={display === 'shown'}>Shown</option>
+            <option value="output" defaultValue={display === 'output'}>
+              Hidden, but show code outputs
+            </option>
+          </select>
+        </div>
 
         <NotebookPreview
           notebook={content}
@@ -109,10 +93,28 @@ export default class extends React.Component {
         />
 
         <style jsx global>{`
+          .input-container {
+            display: ${(display === 'hidden' || display === 'output') ? 'none!important' : 'inherit'};
+          }
 
-          ${style}
+          .nteract-display-area-stdout {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            display: ${display === 'hidden' ? 'none!important' : 'inherit'};
+          }
+
+          .nteract-display-area-stderr {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            display: ${display === 'hidden' ? 'none!important' : 'inherit'};
+          }
+
           .content-margin {
             padding: 0px !important;
+          }
+
+          .cells {
+            font-family: "Source Sans Pro",Helvetica Neue,Helvetica,Arial, sans-serif;
           }
 
           .cell:hover .prompt, .cell:active .prompt {
@@ -120,6 +122,18 @@ export default class extends React.Component {
             color: black!important;
           }
 
+          .outputs {
+            padding-top: 0px!important;
+            padding-bottom: 0px!important;
+          }
+
+          .selector {
+            font-family: "Source Sans Pro",Helvetica Neue,Helvetica,Arial, sans-serif;
+          }
+
+          body {
+            font-family: "Source Sans Pro",Helvetica Neue,Helvetica,Arial, sans-serif;
+          }
         `}</style>
       </div>
     )

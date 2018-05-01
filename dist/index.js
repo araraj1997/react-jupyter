@@ -101,32 +101,34 @@ var _default = function (_React$Component) {
     var display = this.state.display;
 
 
-    var style = '\n      ' + (display === 'hidden' || display === 'output' ? '\n        .input-container {\n          display: none!important;\n        }\n      ' : '') + '\n\n      ' + (display === 'hidden' ? '\n        .nteract-display-area-stdout {\n          display: none!important;\n        }\n\n        .nteract-display-area-stderr {\n          display: none!important;\n        }\n      ' : '') + '\n    ';
-
     return _react2.default.createElement(
       'div',
       null,
-      'Code:',
-      '  ',
       _react2.default.createElement(
-        'select',
-        { onChange: function onChange(e) {
-            return _this2.onChangeDisplay(e);
-          }, value: display },
+        'div',
+        { className: 'selector' },
+        'Code:',
+        '  ',
         _react2.default.createElement(
-          'option',
-          { value: 'hidden', defaultValue: display === 'hidden' },
-          'Hidden'
-        ),
-        _react2.default.createElement(
-          'option',
-          { value: 'shown', defaultValue: display === 'shown' },
-          'Shown'
-        ),
-        _react2.default.createElement(
-          'option',
-          { value: 'output', defaultValue: display === 'output' },
-          'Hidden, but show code outputs'
+          'select',
+          { onChange: function onChange(e) {
+              return _this2.onChangeDisplay(e);
+            }, value: display },
+          _react2.default.createElement(
+            'option',
+            { value: 'hidden', defaultValue: display === 'hidden' },
+            'Hidden'
+          ),
+          _react2.default.createElement(
+            'option',
+            { value: 'shown', defaultValue: display === 'shown' },
+            'Shown'
+          ),
+          _react2.default.createElement(
+            'option',
+            { value: 'output', defaultValue: display === 'output' },
+            'Hidden, but show code outputs'
+          )
         )
       ),
       _react2.default.createElement(_notebookPreview2.default, {
@@ -137,7 +139,7 @@ var _default = function (_React$Component) {
       _react2.default.createElement(
         'style',
         { jsx: true, global: true },
-        '\n\n          ' + style + '\n          .content-margin {\n            padding: 0px !important;\n          }\n\n          .cell:hover .prompt, .cell:active .prompt {\n            background-color: #fafafa!important;\n            color: black!important;\n          }\n\n        '
+        '\n          .input-container {\n            display: ' + (display === 'hidden' || display === 'output' ? 'none!important' : 'inherit') + ';\n          }\n\n          .nteract-display-area-stdout {\n            padding-top: 10px;\n            padding-bottom: 10px;\n            display: ' + (display === 'hidden' ? 'none!important' : 'inherit') + ';\n          }\n\n          .nteract-display-area-stderr {\n            padding-top: 10px;\n            padding-bottom: 10px;\n            display: ' + (display === 'hidden' ? 'none!important' : 'inherit') + ';\n          }\n\n          .content-margin {\n            padding: 0px !important;\n          }\n\n          .cell:hover .prompt, .cell:active .prompt {\n            background-color: #fafafa!important;\n            color: black!important;\n          }\n\n          .outputs {\n            padding-top: 0px!important;\n            padding-bottom: 0px!important;\n          }\n\n          .selector {\n            margin-left: 20px;\n            font-family: "Source Sans Pro",Helvetica Neue,Helvetica,Arial, sans-serif;\n          }\n        '
       )
     );
   };

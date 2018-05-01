@@ -18,15 +18,23 @@ export default class extends React.Component {
 
     return (
       <div>
-        <h1>react-jupyter</h1>
         {loading && <p>loading...</p>}
 
-        {content &&
-          <Jupyter
-            content={content}
-            display="hidden"
-          />
-        }
+        <div className="wrapper">
+          {content &&
+            <Jupyter
+              content={content}
+              display="hidden"
+            />
+          }
+        </div>
+        <style jsx>{`
+          .wrapper {
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+          }
+        `}</style>
       </div>
     )
   }
