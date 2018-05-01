@@ -137,7 +137,7 @@ var _default = function (_React$Component) {
       _react2.default.createElement(
         'style',
         { jsx: true, global: true },
-        style
+        '\n\n          ' + style + '\n          .content-margin {\n            padding: 0px !important;\n          }\n\n          .cell:hover .prompt, .cell:active .prompt {\n            background-color: #fafafa!important;\n            color: black!important;\n          }\n\n        '
       )
     );
   };
