@@ -44,6 +44,7 @@ This will open a window there the renderer is displayed, then edit the files in 
 Deploy library:
 
 ```
+yarn run build
 npm version patch
 npm publish -d
 ```
@@ -54,4 +55,10 @@ Deploy demo
 yarn run export
 cd out
 now
+```
+
+Then get the deployment url and alias it:
+
+```
+now alias <deployment url> react-jupyter.oss.kyso.io
 ```

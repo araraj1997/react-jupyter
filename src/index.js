@@ -114,7 +114,14 @@ export default class extends React.Component {
           }
 
           .cells {
+            margin-left: 0px!important;
+            margin-right: 0px!important;
             font-family: "Source Sans Pro",Helvetica Neue,Helvetica,Arial, sans-serif;
+          }
+
+          .content-margin {
+              padding-left: 0px!important;
+              padding-right: 0px!important;
           }
 
           .cell:hover .prompt, .cell:active .prompt {
