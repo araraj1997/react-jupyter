@@ -7,7 +7,6 @@ import {
 } from "@nteract/transforms"
 import NotebookPreview from "@nteract/notebook-preview"
 import DataResourceTransform from "@nteract/transform-dataresource"
-
 import { VegaLite1, VegaLite2, Vega2, Vega3 } from "@nteract/transform-vega"
 import { PlotlyNullTransform, PlotlyTransform } from "./PlotlyTransform"
 
@@ -29,7 +28,6 @@ const setDisplay = (_class, val) => {
       elem.setAttribute('style', `display:${val} !important`)
     )
 }
-
 
 export default class extends React.Component {
   constructor(props) {
@@ -110,7 +108,19 @@ export default class extends React.Component {
           transforms={transforms}
         />
 
-        <style jsx global>{style}</style>
+        <style jsx global>{`
+
+          ${style}
+          .content-margin {
+            padding: 0px !important;
+          }
+
+          .cell:hover .prompt, .cell:active .prompt {
+            background-color: #fafafa!important;
+            color: black!important;
+          }
+
+        `}</style>
       </div>
     )
   }

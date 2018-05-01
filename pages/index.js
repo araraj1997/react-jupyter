@@ -24,7 +24,7 @@ export default class extends React.Component {
         {content &&
           <Jupyter
             content={content}
-            display="shown"
+            display="hidden"
           />
         }
       </div>
